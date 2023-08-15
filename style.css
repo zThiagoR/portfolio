@@ -86,6 +86,7 @@ section {
 
 #skills {
   background-color: var(--tertiary-color);
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
