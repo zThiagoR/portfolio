@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <section id="aboutme" className="bg-secondary">
+    <section id="Sobre mim" className="bg-secondary">
       <div className="container mx-auto flex flex-col items-center justify-center lg:h-screen lg:flex-row-reverse">
         <div>
           <img
