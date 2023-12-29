@@ -10,14 +10,14 @@ export default function AboutMe() {
           />
         </div>
         <div className="mx-auto max-w-screen-md p-8 text-center text-white">
-          <div className="text-4xl font-bold">Thiago M.</div>
-          <span className="text-lg">FullStack Developer</span>
-          <h2 className="mt-2 font-economica text-2xl font-medium">Quem sou eu?</h2>
+          <div className="text-5xl font-bold">Thiago M.</div>
+          <span className="text-xl">FullStack Developer</span>
+          <h2 className="mt-2 font-poppins text-2xl font-medium">Quem sou eu?</h2>
           <p className="mt-4 text-lg">
             Como desenvolvedor full-stack, minha paixão está em criar soluções web criativas e inovadoras. Tenho experiência tanto no desenvolvimento frontend quanto no backend, e meu foco é aprendizado contínuo e aprimoramento de minhas habilidades.
             <br />
             <br />
-            Apaixonado por tecnologia e sempre em busca de novos conhecimentos. Atualmente estou cursando Ciências da Computação no último período na Universidade Estácio de Sá.
+            Apaixonado por tecnologia e sempre em busca de novos conhecimentos. Atualmente estou cursando Ciências da Computação no último período na Universidade Estácio.
           </p>
         </div>
       </div>
