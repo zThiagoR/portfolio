@@ -10,11 +10,14 @@ export default {
         "quantico": ["Quantico", "sans-serif"],
         "roboto": ["Roboto", "sans-serif"],
         "economica": ["Economica", "sans-serif"],
+        "poppins": ["Poppins", "sans-serif"],
       },
       colors: {
-        "primary": "#203c52",
-        "secondary": "#31346a",
-        "tertiary": "#3a3f7a",
+        "primary": "#363062",
+        "secondary": "#435585",
+        "tertiary": "#818FB4", 
+        "button-primary": "#596FB7",
+        "button-secondary": "#11235A",
       }
     },
   },
