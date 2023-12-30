@@ -34,14 +34,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
       <div className="flex space-x-2">
-        <div className={`${isGithubDisabled ? 'cursor-not-allowed opacity-50' : 'hover:brightness-125'} inline-flex flex-1 items-center justify-center rounded-md bg-button-secondary py-2 font-medium text-white transition-colors duration-300`}>
+      <a 
+          href={sourceUrl || '#'} 
+          target={isGithubDisabled ? '' : '_blank'}
+          className={`inline-flex flex-1 items-center justify-center rounded-md bg-button-secondary py-2 font-medium text-white transition-colors duration-300 ${isGithubDisabled ? 'cursor-not-allowed opacity-50' : 'hover:brightness-125'}`}
+        >
           <FaGithub className="mr-2" />
           <span>Ver no GitHub</span>
-        </div>
-        <div className={`${isProjectDisabled ? 'cursor-not-allowed opacity-50' : 'hover:brightness-125'} inline-flex flex-1 items-center justify-center rounded-md bg-button-secondary py-2 font-medium text-white transition-colors duration-300`}>
+        </a>
+        <a 
+          href={projectUrl || '#'} 
+          target={isProjectDisabled ? '' : '_blank'}
+          className={`inline-flex flex-1 items-center justify-center rounded-md bg-button-secondary py-2 font-medium text-white transition-colors duration-300 ${isProjectDisabled ? 'cursor-not-allowed opacity-50' : 'hover:brightness-125'}`}
+        >
           <FaExternalLinkAlt className="mr-2" />
           <span>Visitar Site</span>
-        </div>
+        </a>
       </div>
     </div>
   );
