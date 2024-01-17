@@ -14,10 +14,10 @@ export default function AboutMe() {
           <span className="text-xl">FullStack Developer</span>
           <h2 className="mt-2 font-poppins text-2xl font-medium">Quem sou eu?</h2>
           <p className="mt-4 text-lg">
-            Como desenvolvedor full-stack, minha paixão está em criar soluções web criativas e inovadoras. Tenho experiência tanto no desenvolvimento frontend quanto no backend, e meu foco é aprendizado contínuo e aprimoramento de minhas habilidades.
-            <br />
-            <br />
-            Apaixonado por tecnologia e sempre em busca de novos conhecimentos. Atualmente estou cursando Ciências da Computação no último período na Universidade Estácio.
+          Sou um desenvolvedor full-stack com competências sólidas tanto em frontend quanto em backend, especializado na criação de soluções web inovadoras e eficientes. Meu compromisso com o desenvolvimento contínuo de habilidades técnicas e adaptação às tendências emergentes do setor é um pilar central da minha abordagem profissional.
+          <br />
+          <br />
+          Atualmente, estou concluindo o curso de Ciências da Computação na Universidade Estácio, uma etapa crucial para aprofundar minhas habilidades teóricas e práticas. Minha abordagem ao desenvolvimento de software combina rigor técnico com soluções criativas, permitindo-me enfrentar e superar desafios tecnológicos com eficácia e inovação.
           </p>
         </div>
       </div>
