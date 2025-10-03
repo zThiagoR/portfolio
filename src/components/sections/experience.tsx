@@ -71,28 +71,28 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-secondary to-primary">
+    <section id="experience" className="bg-gradient-to-b from-secondary to-primary py-20">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center px-4 py-2 bg-card/60 backdrop-blur-sm border border-accent/30 rounded-full mb-6"
+            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <FaBriefcase className="text-accent mr-2" size={16} />
-            <span className="text-text-secondary text-sm font-medium">Minha Jornada</span>
+            <FaBriefcase className="mr-2 text-accent" size={16} />
+            <span className="text-sm font-medium text-text-secondary">Minha Jornada</span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl lg:text-5xl font-space font-bold text-text-primary mb-6"
+            className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -103,7 +103,7 @@ export default function ExperienceSection() {
           </motion.h2>
 
           <motion.p
-            className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed"
+            className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -113,8 +113,8 @@ export default function ExperienceSection() {
           </motion.p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-purple to-pink hidden md:block"></div>
+        <div className="relative mx-auto max-w-5xl">
+          <div className="absolute inset-y-0 left-8 hidden w-0.5 bg-gradient-to-b from-accent via-purple to-pink md:block"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -126,75 +126,75 @@ export default function ExperienceSection() {
               viewport={{ once: true }}
             >
               <motion.div
-                className="absolute left-6 w-5 h-5 bg-accent rounded-full border-4 border-primary z-10 hidden md:block"
+                className="absolute left-6 z-10 hidden size-5 rounded-full border-4 border-primary bg-accent md:block"
                 whileHover={{ scale: 1.3 }}
                 transition={{ duration: 0.2 }}
               />
 
               <motion.div
-                className="md:ml-20 bg-card/60 backdrop-blur-sm border border-accent/20 rounded-2xl p-8"
+                className="rounded-2xl border border-accent/20 bg-card/60 p-8 backdrop-blur-sm md:ml-20"
                 whileHover={{
                   scale: 1.01,
                   boxShadow: "0 20px 40px rgba(0, 212, 255, 0.1)"
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
                   <div className="mb-2 sm:mb-0">
-                    <h3 className="text-2xl font-space font-bold text-text-primary mb-1">
+                    <h3 className="mb-1 font-space text-2xl font-bold text-text-primary">
                       {exp.role}
                     </h3>
-                    <div className="flex items-center text-accent font-semibold">
+                    <div className="flex items-center font-semibold text-accent">
                       <span>{exp.company}</span>
                       <span className="mx-2 text-text-muted">•</span>
                       <FaMapMarkerAlt className="mr-1 text-text-muted" size={12} />
-                      <span className="text-text-secondary text-sm">{exp.location}</span>
+                      <span className="text-sm text-text-secondary">{exp.location}</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col items-start sm:items-end">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold mb-2 ${exp.type === 'Freelance' ? 'bg-success/20 text-success' :
+                    <span className={`mb-2 rounded-full px-3 py-1 text-xs font-semibold ${exp.type === 'Freelance' ? 'bg-success/20 text-success' :
                         exp.type === 'Open Source' ? 'bg-accent/20 text-accent' :
                         exp.type === 'Voluntário' ? 'bg-purple-500/20 text-purple-400' :
                         'bg-warning/20 text-warning'
                       }`}>
                       {exp.type}
                     </span>
-                    <div className="flex items-center text-text-muted text-sm">
+                    <div className="flex items-center text-sm text-text-muted">
                       <FaCalendarAlt className="mr-1" size={12} />
                       {exp.period}
                     </div>
                   </div>
                 </div>
 
-                <p className="text-text-secondary mb-6 leading-relaxed">
+                <p className="mb-6 leading-relaxed text-text-secondary">
                   {exp.description}
                 </p>
 
                 {exp.responsibilities && (
                   <div className="mb-6">
-                    <h4 className="text-text-primary font-semibold mb-3 text-sm">
+                    <h4 className="mb-3 text-sm font-semibold text-text-primary">
                       Principais Responsabilidades
                     </h4>
 
                     {Array.isArray(exp.responsibilities) ? (
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
                         {exp.responsibilities.map((responsibility, respIndex) => (
                           <motion.li
                             key={respIndex}
-                            className="text-text-secondary text-sm leading-relaxed flex items-start"
+                            className="flex items-start text-sm leading-relaxed text-text-secondary"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: respIndex * 0.1 }}
                             viewport={{ once: true }}
                           >
-                            <span className="text-accent mr-2 mt-1 text-xs">▸</span>
+                            <span className="mr-2 mt-1 text-xs text-accent">▸</span>
                             {responsibility}
                           </motion.li>
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-text-secondary text-sm leading-relaxed">
+                      <p className="text-sm leading-relaxed text-text-secondary">
                         {exp.responsibilities}
                       </p>
                     )}
@@ -202,14 +202,14 @@ export default function ExperienceSection() {
                 )}
 
                 <div>
-                  <h4 className="text-text-primary font-semibold mb-3 text-sm">
+                  <h4 className="mb-3 text-sm font-semibold text-text-primary">
                     Stack Tecnológico
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <motion.span
                         key={techIndex}
-                        className="px-3 py-1 bg-secondary/60 border border-accent/20 text-text-secondary text-xs rounded-lg font-medium hover:bg-accent/20 hover:text-accent transition-all duration-300"
+                        className="rounded-lg border border-accent/20 bg-secondary/60 px-3 py-1 text-xs font-medium text-text-secondary transition-all duration-300 hover:bg-accent/20 hover:text-accent"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >

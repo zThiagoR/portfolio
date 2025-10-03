@@ -61,28 +61,28 @@ export default function StacksSection() {
   const [activeCategory, setActiveCategory] = useState('frontend');
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-darker to-primary">
+    <section id="skills" className="bg-gradient-to-b from-darker to-primary py-20">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center px-4 py-2 bg-card/60 backdrop-blur-sm border border-accent/30 rounded-full mb-6"
+            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <FaCog className="text-accent mr-2" size={16} />
-            <span className="text-text-secondary text-sm font-medium">Minhas Competências</span>
+            <FaCog className="mr-2 text-accent" size={16} />
+            <span className="text-sm font-medium text-text-secondary">Minhas Competências</span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl lg:text-5xl font-space font-bold text-text-primary mb-6"
+            className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -93,7 +93,7 @@ export default function StacksSection() {
           </motion.h2>
 
           <motion.p
-            className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed"
+            className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -103,16 +103,16 @@ export default function StacksSection() {
           </motion.p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="mb-12 flex flex-wrap justify-center gap-3">
           {Object.entries(skillCategories).map(([key, category], index) => {
             const IconComponent = category.icon;
             return (
               <motion.button
                 key={key}
                 onClick={() => setActiveCategory(key)}
-                className={`flex items-center space-x-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${activeCategory === key
+                className={`flex items-center space-x-3 rounded-xl px-6 py-4 font-semibold transition-all duration-300 ${activeCategory === key
                   ? 'bg-button-gradient text-white shadow-lg shadow-accent/25'
-                  : 'bg-card/60 backdrop-blur-sm border border-accent/30 text-text-primary hover:text-accent hover:border-accent'
+                  : 'border border-accent/30 bg-card/60 text-text-primary backdrop-blur-sm hover:border-accent hover:text-accent'
                   }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -128,9 +128,9 @@ export default function StacksSection() {
           })}
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto max-w-6xl">
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+            className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5"
             key={activeCategory}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -139,7 +139,7 @@ export default function StacksSection() {
             {skillCategories[activeCategory as keyof typeof skillCategories].skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                className="group bg-card/60 backdrop-blur-sm border border-accent/20 rounded-2xl p-6 hover:border-accent transition-all duration-300 text-center"
+                className="group rounded-2xl border border-accent/20 bg-card/60 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-accent"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -150,16 +150,16 @@ export default function StacksSection() {
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-4 bg-secondary/60 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-all duration-300"
+                  className="mx-auto mb-4 flex size-16 items-center justify-center rounded-xl bg-secondary/60 transition-all duration-300 group-hover:bg-accent/20"
                   whileHover={{ rotate: 5 }}
                 >
                   <img
                     src={skill.url}
                     alt={skill.name}
-                    className="w-10 h-10"
+                    className="size-10"
                   />
                 </motion.div>
-                <h3 className="text-text-primary font-medium text-sm group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-sm font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
                   {skill.name}
                 </h3>
               </motion.div>

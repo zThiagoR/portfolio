@@ -20,7 +20,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.div 
-      className="group relative bg-card/60 backdrop-blur-sm border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:border-accent/50 flex flex-col h-full"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-500 hover:border-accent/50"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -29,7 +29,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         boxShadow: "0 20px 40px rgba(0, 212, 255, 0.1)"
       }}
     >
-      <div className="relative h-20 bg-gradient-to-br from-accent/10 via-purple/10 to-pink/10 flex items-center justify-center border-b border-border/50">
+      <div className="relative flex h-20 items-center justify-center border-b border-border/50 bg-gradient-to-br from-accent/10 via-purple/10 to-pink/10">
         <motion.div
           whileHover={{ scale: 1.2, rotate: 15 }}
           transition={{ duration: 0.3 }}
@@ -38,30 +38,30 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.div>
         
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent transform -skew-x-12"
+          className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-accent/20 to-transparent"
           initial={{ x: "-100%" }}
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.6 }}
         />
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
+      <div className="flex flex-1 flex-col p-6">
         <motion.h3 
-          className="text-xl font-space font-bold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300"
+          className="mb-3 font-space text-xl font-bold text-text-primary transition-colors duration-300 group-hover:text-accent"
           whileHover={{ x: 5 }}
         >
           {title}
         </motion.h3>
       
-        <p className="text-text-secondary mb-4 leading-relaxed text-sm flex-1">
+        <p className="mb-4 flex-1 text-sm leading-relaxed text-text-secondary">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6 min-h-[2.5rem]">
+        <div className="mb-6 flex min-h-10 flex-wrap gap-2">
           {tags.map((tag, tagIndex) => (
             <motion.span
               key={tagIndex}
-              className="px-3 py-1 bg-secondary/60 border border-border text-text-secondary text-xs rounded-lg font-medium transition-all duration-300 hover:bg-accent/20 hover:text-accent hover:border-accent/30 h-fit"
+              className="h-fit rounded-lg border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-text-secondary transition-all duration-300 hover:border-accent/30 hover:bg-accent/20 hover:text-accent"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -70,17 +70,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="flex space-x-3 mt-auto">
+        <div className="mt-auto flex space-x-3">
           {sourceUrl && (
             <motion.a
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center py-3 px-4 bg-secondary/60 hover:bg-accent/20 border border-border hover:border-accent/50 text-text-secondary hover:text-accent rounded-xl transition-all duration-300 font-medium text-sm group/btn"
+              className="group/btn flex flex-1 items-center justify-center rounded-xl border border-border bg-secondary/60 px-4 py-3 text-sm font-medium text-text-secondary transition-all duration-300 hover:border-accent/50 hover:bg-accent/20 hover:text-accent"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <FaGithub className="mr-2 group-hover/btn:scale-110 transition-transform duration-300" size={16} />
+              <FaGithub className="mr-2 transition-transform duration-300 group-hover/btn:scale-110" size={16} />
               Código
             </motion.a>
           )}
@@ -89,11 +89,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center py-3 px-4 bg-button-gradient hover:shadow-lg hover:shadow-accent/25 text-white rounded-xl transition-all duration-300 font-medium text-sm group/btn"
+              className="group/btn flex flex-1 items-center justify-center rounded-xl bg-button-gradient px-4 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <FaExternalLinkAlt className="mr-2 group-hover/btn:scale-110 transition-transform duration-300" size={16} />
+              <FaExternalLinkAlt className="mr-2 transition-transform duration-300 group-hover/btn:scale-110" size={16} />
               Demo
             </motion.a>
           )}
@@ -101,7 +101,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-accent/5 via-purple/5 to-pink/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 via-purple/5 to-pink/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
       />

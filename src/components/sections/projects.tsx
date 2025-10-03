@@ -59,28 +59,28 @@ export default function ProjectsSection() {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-primary to-darker">
+    <section id="projects" className="bg-gradient-to-b from-primary to-darker py-20">
       <div className="container mx-auto px-6">
         <motion.div 
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div 
-            className="inline-flex items-center px-4 py-2 bg-card/60 backdrop-blur-sm border border-accent/30 rounded-full mb-6"
+            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <FaCode className="text-accent mr-2" size={16} />
-            <span className="text-text-secondary text-sm font-medium">Meu Trabalho</span>
+            <FaCode className="mr-2 text-accent" size={16} />
+            <span className="text-sm font-medium text-text-secondary">Meu Trabalho</span>
           </motion.div>
           
           <motion.h2 
-            className="text-4xl lg:text-5xl font-space font-bold text-text-primary mb-6"
+            className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -91,7 +91,7 @@ export default function ProjectsSection() {
           </motion.h2>
           
           <motion.p 
-            className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed"
+            className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -102,17 +102,17 @@ export default function ProjectsSection() {
           </motion.p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="mb-12 flex flex-wrap justify-center gap-3">
           {filters.map((filter, index) => {
             const IconComponent = filter.icon;
             return (
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 rounded-xl px-6 py-3 font-medium transition-all duration-300 ${
                   activeFilter === filter.id
                     ? 'bg-button-gradient text-white shadow-lg shadow-accent/25'
-                    : 'bg-card/60 backdrop-blur-sm border border-accent/30 text-text-primary hover:text-accent hover:border-accent'
+                    : 'border border-accent/30 bg-card/60 text-text-primary backdrop-blur-sm hover:border-accent hover:text-accent'
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -128,39 +128,39 @@ export default function ProjectsSection() {
           })}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
 
         <motion.div 
-          className="text-center mt-16"
+          className="mt-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div 
-            className="inline-flex flex-col items-center p-8 bg-card/60 backdrop-blur-sm border border-accent/30 rounded-2xl"
+            className="inline-flex flex-col items-center rounded-2xl border border-accent/30 bg-card/60 p-8 backdrop-blur-sm"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="text-text-secondary mb-6 text-lg">
+            <p className="mb-6 text-lg text-text-secondary">
               Interessado em ver mais do meu trabalho?
             </p>
             <motion.a
               href="https://github.com/zThiagoR"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-button-gradient text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center group shadow-lg shadow-accent/25"
+              className="group flex items-center rounded-xl bg-button-gradient px-8 py-4 font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0, 212, 255, 0.3)"
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaCode className="mr-2 group-hover:scale-110 transition-transform duration-300" />
+              <FaCode className="mr-2 transition-transform duration-300 group-hover:scale-110" />
               Ver Todos no GitHub
             </motion.a>
           </motion.div>
