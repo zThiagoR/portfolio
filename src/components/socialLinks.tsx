@@ -16,7 +16,7 @@ export default function SocialLinks({
     },
     {
       icon: FaLinkedin,
-      href: 'https://linkedin.com/in/thiago-m',
+      href: 'https://www.linkedin.com/in/thiagocmagalhaes/',
       label: 'LinkedIn'
     }
   ];
