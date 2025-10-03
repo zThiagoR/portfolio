@@ -106,21 +106,22 @@ export default function AboutMe() {
             </div>
           </div>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+          <motion.button
+            className="border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/cv-thiago.pdf';
+              link.download = 'Thiago-Magalhães-CV.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
           >
-            <motion.button
-              className="border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaDownload className="mr-2" />
-              Download CV
-            </motion.button>
-          </motion.div>
+            <FaDownload className="mr-2" />
+            Download CV
+          </motion.button>
 
           <motion.div
             className="flex justify-center lg:justify-start"
