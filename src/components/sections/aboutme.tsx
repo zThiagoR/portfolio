@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import SocialLinks from '../socialLinks';
 
 export default function AboutMe() {
   const [currentRole, setCurrentRole] = useState('Full Stack');
-  const roles = ['Full Stack', 'Frontend', 'Backend'];
+  const roles = useMemo(() => ['Full Stack', 'Frontend', 'Backend'], []);
 
   useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentRole(prev => {
-          const currentIndex = roles.indexOf(prev);
-          return roles[(currentIndex + 1) % roles.length];
-        });
-      }, 3000);
+    const interval = setInterval(() => {
+      setCurrentRole(prev => {
+        const currentIndex = roles.indexOf(prev);
+        return roles[(currentIndex + 1) % roles.length];
+      });
+    }, 3000);
 
-      return () => clearInterval(interval);
-    }, [roles]);
+    return () => clearInterval(interval);
+  }, [roles]);
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-dark via-primary to-darker">
@@ -92,16 +92,35 @@ export default function AboutMe() {
             <div className="mb-6 h-12 text-2xl font-medium text-text-secondary lg:text-3xl">
               <span className="font-space">
                 Desenvolvedor{' '}
-                <motion.span
-                  key={currentRole}
-                  className="font-semibold text-accent"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {currentRole}
-                </motion.span>
+                <div className="relative inline-block">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentRole}
+                      className="font-semibold text-accent"
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                        scale: 0.8
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                        scale: 1
+                      }}
+                      exit={{
+                        opacity: 0,
+                        y: -20,
+                        scale: 1.1
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "backInOut"
+                      }}
+                    >
+                      {currentRole}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
               </span>
             </div>
           </div>
