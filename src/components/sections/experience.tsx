@@ -6,7 +6,7 @@ interface Experience {
   role: string;
   period: string;
   location: string;
-  type: 'Freelance' | 'Open Source' | 'Voluntário';
+  type: 'Freelance' | 'Voluntário';
   description: string;
   responsibilities?: string[] | string;
   technologies: string[];
@@ -20,7 +20,7 @@ export default function ExperienceSection() {
       period: "2021 - Atual",
       location: "Remoto",
       type: "Freelance",
-      description: "Atualmente trabalho como desenvolvedor freelancer, oferecendo soluções completas de desenvolvimento web para diversos clientes. Especializado em criar aplicações modernas, responsivas e performáticas, desde landinquipees até sistemas complexos com autenticação e integrações.",
+      description: "Atualmente trabalho como desenvolvedor freelancer, oferecendo soluções completas de desenvolvimento web para diversos clientes. Especializado em criar aplicações modernas, responsivas e performáticas, desde landing pages até sistemas complexos com autenticação e integrações.",
       responsibilities: [
         "Desenvolvimento de aplicações web completas (frontend + backend)",
         "Criação de APIs REST e integração com bancos de dados",
@@ -154,9 +154,7 @@ export default function ExperienceSection() {
 
                   <div className="flex flex-col items-start sm:items-end">
                     <span className={`mb-2 rounded-full px-3 py-1 text-xs font-semibold ${exp.type === 'Freelance' ? 'bg-success/20 text-success' :
-                        exp.type === 'Open Source' ? 'bg-accent/20 text-accent' :
-                        exp.type === 'Voluntário' ? 'bg-purple-500/20 text-purple-400' :
-                        'bg-warning/20 text-warning'
+                        'bg-purple/20 text-purple'
                       }`}>
                       {exp.type}
                     </span>
