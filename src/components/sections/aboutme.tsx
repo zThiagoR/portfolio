@@ -57,7 +57,7 @@ export default function AboutMe() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="mb-8">
+          <div>
             <motion.div
               className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
               initial={{ opacity: 0, y: 20 }}
@@ -89,44 +89,43 @@ export default function AboutMe() {
               </motion.span>
             </motion.h1>
 
-            <div className="mb-6 h-12 text-2xl font-medium text-text-secondary lg:text-3xl">
+            <div className="h-12 text-2xl font-medium text-text-secondary lg:text-3xl">
               <span className="font-space">
                 Desenvolvedor{' '}
-                <div className="relative inline-block">
+                <span>
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentRole}
                       className="font-semibold text-accent"
                       initial={{
-                        opacity: 0,
-                        y: 20,
-                        scale: 0.8
+                        opacity: 0
                       }}
                       animate={{
-                        opacity: 1,
-                        y: 0,
-                        scale: 1
+                        opacity: 1
                       }}
                       exit={{
-                        opacity: 0,
-                        y: -20,
-                        scale: 1.1
+                        opacity: 0
                       }}
                       transition={{
-                        duration: 0.5,
-                        ease: "backInOut"
+                        duration: 0.3,
+                        ease: "easeInOut"
+                      }}
+                      style={{
+                        willChange: 'opacity',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
                       }}
                     >
                       {currentRole}
                     </motion.span>
                   </AnimatePresence>
-                </div>
+                </span>
               </span>
             </div>
           </div>
 
           <motion.button
-            className="mx-auto mb-8 flex items-center justify-center rounded-xl border-2 border-accent px-8 py-4 font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-white lg:mx-0"
+            className="mx-auto mb-4 flex items-center justify-center rounded-xl border-2 border-accent px-8 py-4 font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-white lg:mx-0"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
