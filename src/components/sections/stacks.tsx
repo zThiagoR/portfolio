@@ -77,12 +77,7 @@ export default function StacksSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <FaCog className="text-accent mr-2" size={16} />
-            </motion.div>
+            <FaCog className="text-accent mr-2" size={16} />
             <span className="text-text-secondary text-sm font-medium">Minhas Competências</span>
           </motion.div>
 
