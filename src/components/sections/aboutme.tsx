@@ -107,13 +107,13 @@ export default function AboutMe() {
           </div>
 
           <motion.button
-            className="border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center"
+            className="border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center mb-8 mx-auto lg:mx-0"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               const link = document.createElement('a');
               link.href = '/cv-thiago.pdf';
-              link.download = 'Thiago-Magalhães-CV.pdf';
+              link.download = 'Thiago-magalhaes-CV.pdf';
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
