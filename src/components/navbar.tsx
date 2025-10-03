@@ -9,7 +9,15 @@ export default function Navbar() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const navbarHeight = 80;
+        const elementPosition = element.offsetTop - navbarHeight;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }, 300);
     }
   };
 
@@ -31,8 +39,8 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? 'bg-dark/90 backdrop-blur-md border-b border-accent/20'
-          : 'bg-transparent'
+        ? 'bg-dark/90 backdrop-blur-md border-b border-accent/20'
+        : 'bg-transparent'
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -83,38 +91,38 @@ export default function Navbar() {
           </motion.button>
         </div>
 
-        <motion.div
-          className="md:hidden overflow-hidden"
-          initial={false}
-          animate={{
-            height: isOpen ? "auto" : 0,
-            opacity: isOpen ? 1 : 0
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="bg-card/90 backdrop-blur-md border border-accent/20 rounded-2xl p-6 mt-4">
-            <ul className="space-y-4">
-              {menus.map((menu, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <button
-                    onClick={() => {
-                      scrollToSection(menu.to);
-                      setIsOpen(false);
-                    }}
-                    className="block text-text-primary hover:text-accent cursor-pointer transition-colors duration-300 font-medium py-2 w-full text-left"
+        {isOpen && (
+          <motion.div
+            className="md:hidden absolute top-full left-6 right-6 z-50"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            <div className="bg-card/90 backdrop-blur-md border border-accent/20 rounded-2xl p-6 mt-1 shadow-2xl">
+              <ul className="space-y-4">
+                {menus.map((menu, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    {menu.name}
-                  </button>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        scrollToSection(menu.to);
+                      }}
+                      className="block text-text-primary hover:text-accent cursor-pointer transition-colors duration-300 font-medium py-2 w-full text-left"
+                    >
+                      {menu.name}
+                    </button>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
