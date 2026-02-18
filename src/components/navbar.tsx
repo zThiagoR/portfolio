@@ -54,11 +54,9 @@ export default function Navbar() {
           >
             <button
               onClick={() => scrollToSection('home')}
-              className="cursor-pointer font-space text-2xl font-bold"
+              className="cursor-pointer font-space text-2xl font-bold text-accent"
             >
-              <span className="bg-gradient-to-r from-accent via-purple to-pink bg-clip-text text-transparent">
-                TM
-              </span>
+              TM
             </button>
           </motion.div>
 
@@ -75,7 +73,7 @@ export default function Navbar() {
                   className="group relative cursor-pointer font-medium text-text-primary transition-colors duration-300 hover:text-accent"
                 >
                   {menu.name}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-purple transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </motion.li>
             ))}

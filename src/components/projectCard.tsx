@@ -29,20 +29,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         boxShadow: "0 20px 40px rgba(0, 212, 255, 0.1)"
       }}
     >
-      <div className="relative flex h-20 items-center justify-center border-b border-border/50 bg-gradient-to-br from-accent/10 via-purple/10 to-pink/10">
+      <div className="relative flex h-20 items-center justify-center border-b border-border/50 bg-accent/10">
         <motion.div
           whileHover={{ scale: 1.2, rotate: 15 }}
           transition={{ duration: 0.3 }}
         >
           <FaCode className="text-3xl text-accent" />
         </motion.div>
-        
-        <motion.div 
-          className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-accent/20 to-transparent"
-          initial={{ x: "-100%" }}
-          whileHover={{ x: "100%" }}
-          transition={{ duration: 0.6 }}
-        />
       </div>
 
       <div className="flex flex-1 flex-col p-6">
@@ -89,7 +82,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex flex-1 items-center justify-center rounded-xl bg-button-gradient px-4 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
+              className="group/btn flex flex-1 items-center justify-center rounded-xl bg-accent px-4 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -99,12 +92,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
       </div>
-
-      <motion.div 
-        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 via-purple/5 to-pink/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-      />
     </motion.div>
   );
 }

@@ -43,12 +43,19 @@ export default function ProjectsSection() {
       tags: ["TypeScript", "VS Code Extension"],
       sourceUrl: "https://github.com/zThiagoR/getsetforge",
       category: "tool"
+    },
+    {
+      title: "MKB Syntax Highlighting",
+      description: "Extensão VS Code com syntax highlighting para arquivos .mkb.",
+      tags: ["TypeScript", "VS Code Extension"],
+      sourceUrl: "https://github.com/zThiagoR/MKB-Syntax-Highlighting",
+      category: "tool"
     }
   ];
 
   const filters = [
     { id: 'all', label: 'Todos', icon: FaCode },
-    { id: 'web', label: 'Web Apps', icon: FaGlobe },
+    { id: 'web', label: 'Web', icon: FaGlobe },
     { id: 'library', label: 'Bibliotecas', icon: FaCode },
     { id: 'tool', label: 'Ferramentas', icon: FaTools },
     { id: 'template', label: 'Templates', icon: FaFilter }
@@ -59,7 +66,7 @@ export default function ProjectsSection() {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="projects" className="bg-gradient-to-b from-primary to-darker py-20">
+    <section id="projects" className="bg-primary py-20">
       <div className="container mx-auto px-6">
         <motion.div 
           className="mb-16 text-center"
@@ -68,17 +75,6 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div 
-            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <FaCode className="mr-2 text-accent" size={16} />
-            <span className="text-sm font-medium text-text-secondary">Meu Trabalho</span>
-          </motion.div>
-          
           <motion.h2 
             className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
@@ -87,7 +83,7 @@ export default function ProjectsSection() {
             viewport={{ once: true }}
           >
             Projetos em 
-            <span className="bg-gradient-to-r from-accent via-purple to-pink bg-clip-text text-transparent"> Destaque</span>
+            <span className="text-accent"> Destaque</span>
           </motion.h2>
           
           <motion.p 
@@ -111,7 +107,7 @@ export default function ProjectsSection() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`flex items-center space-x-2 rounded-xl px-6 py-3 font-medium transition-all duration-300 ${
                   activeFilter === filter.id
-                    ? 'bg-button-gradient text-white shadow-lg shadow-accent/25'
+                    ? 'bg-accent text-white shadow-lg shadow-accent/25'
                     : 'border border-accent/30 bg-card/60 text-text-primary backdrop-blur-sm hover:border-accent hover:text-accent'
                 }`}
                 initial={{ opacity: 0, y: 20 }}
@@ -153,7 +149,7 @@ export default function ProjectsSection() {
               href="https://github.com/zThiagoR"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center rounded-xl bg-button-gradient px-8 py-4 font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300"
+              className="group flex items-center rounded-xl bg-accent px-8 py-4 font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0, 212, 255, 0.3)"
