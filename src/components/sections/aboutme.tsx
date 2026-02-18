@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaDownload } from 'react-icons/fa';
 import SocialLinks from '../socialLinks';
 
 export default function AboutMe() {
@@ -58,20 +57,6 @@ export default function AboutMe() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div>
-            <motion.div
-              className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.div
-                className="mr-3 size-2 rounded-full bg-success"
-                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <span className="text-sm font-medium text-text-secondary">Disponível para projetos</span>
-            </motion.div>
-
             <motion.h1
               className="mb-4 font-space text-5xl font-bold leading-tight text-text-primary lg:text-7xl"
               initial={{ opacity: 0, y: 30 }}
@@ -124,23 +109,6 @@ export default function AboutMe() {
             </div>
           </div>
 
-          <motion.button
-            className="mx-auto mb-4 flex items-center justify-center rounded-xl border-2 border-accent px-8 py-4 font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-white lg:mx-0"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/cv-thiago.pdf';
-              link.download = 'Thiago-magalhaes-CV.pdf';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }}
-          >
-            <FaDownload className="mr-2" />
-            Download CV
-          </motion.button>
-
           <motion.div
             className="flex justify-center lg:justify-start"
             initial={{ opacity: 0, y: 20 }}
@@ -172,7 +140,6 @@ export default function AboutMe() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-accent/20 to-purple/20 backdrop-blur-sm"></div>
               <img
                 src="https://avatars.githubusercontent.com/u/56285370?v=4"
                 alt="Thiago M."
