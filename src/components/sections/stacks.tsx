@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaServer, FaDatabase, FaTools, FaCog } from 'react-icons/fa';
+import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
 
 const skillCategories = {
   frontend: {
@@ -61,7 +61,7 @@ export default function StacksSection() {
   const [activeCategory, setActiveCategory] = useState('frontend');
 
   return (
-    <section id="skills" className="bg-gradient-to-b from-darker to-primary py-20">
+    <section id="skills" className="bg-darker py-20">
       <div className="container mx-auto px-6">
         <motion.div
           className="mb-16 text-center"
@@ -70,17 +70,6 @@ export default function StacksSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div
-            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <FaCog className="mr-2 text-accent" size={16} />
-            <span className="text-sm font-medium text-text-secondary">Minhas Competências</span>
-          </motion.div>
-
           <motion.h2
             className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
@@ -89,18 +78,8 @@ export default function StacksSection() {
             viewport={{ once: true }}
           >
             Skills &
-            <span className="bg-gradient-to-r from-accent via-purple to-pink bg-clip-text text-transparent"> Tecnologias</span>
+            <span className="text-accent"> Tecnologias</span>
           </motion.h2>
-
-          <motion.p
-            className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Tecnologias e ferramentas que domino para criar soluções completas e eficientes.
-          </motion.p>
         </motion.div>
 
         <div className="mb-12 flex flex-wrap justify-center gap-3">
@@ -111,7 +90,7 @@ export default function StacksSection() {
                 key={key}
                 onClick={() => setActiveCategory(key)}
                 className={`flex items-center space-x-3 rounded-xl px-6 py-4 font-semibold transition-all duration-300 ${activeCategory === key
-                  ? 'bg-button-gradient text-white shadow-lg shadow-accent/25'
+                  ? 'bg-accent text-white shadow-lg shadow-accent/25'
                   : 'border border-accent/30 bg-card/60 text-text-primary backdrop-blur-sm hover:border-accent hover:text-accent'
                   }`}
                 initial={{ opacity: 0, y: 20 }}

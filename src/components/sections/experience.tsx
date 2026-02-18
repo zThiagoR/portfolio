@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 interface Experience {
   company: string;
@@ -35,13 +35,6 @@ export default function ExperienceSection() {
       location: "Remoto",
       type: "Voluntário",
       description: "Assumi o papel de Product Owner em um projeto open-source, colaborando com a squad para organizar e priorizar as tarefas no backlog e garantir entregas consistentes. Participei de reuniões para alinhamento com a equipe, ajudando a definir requisitos e a traduzir ideias em histórias claras para o time de desenvolvimento.",
-      responsibilities: [
-        "Organização e priorização de tarefas no backlog",
-        "Definição de requisitos e tradução de ideias em histórias",
-        "Utilização de metodologias ágeis (Kanban) para planejamento",
-        "Facilitação da comunicação entre membros da equipe",
-        "Acompanhamento do progresso das sprints"
-      ],
       technologies: ["Kanban", "Metodologias Ágeis", "Product Management", "Scrum"]
     },
     {
@@ -51,12 +44,6 @@ export default function ExperienceSection() {
       location: "Remoto",
       type: "Voluntário",
       description: "A comunidade 'Bichinhos da TI' tem como propósito a criação de propen source, visando proporcionar visibilidade aos iniciantes no campo da tecnologia da informação. Desenvolvi projetos interativos, como a 'Roleta de Animais' e a 'Roleta de Tecnologias', com o objetivo de demonstrar e praticar conceitos de desenvolvimento web para a comunidade.",
-      responsibilities: [
-        "Desenvolvimento de projetos interativos (Roleta de Animais, Roleta de Tecnologias)",
-        "Exploração do uso de React para projetos dinâmicos e interativos",
-        "Compartilhamento de projetos com a comunidade para inspirar outros membros",
-        "Contribuição para o aprendizado prático de desenvolvimento web para iniciantes"
-      ],
       technologies: ["JavaScript", "CSS", "React", "HTML", "Git", "Open Source"]
     },
     {
@@ -71,7 +58,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="bg-gradient-to-b from-secondary to-primary py-20">
+    <section id="experience" className="bg-secondary py-20">
       <div className="container mx-auto px-6">
         <motion.div
           className="mb-16 text-center"
@@ -80,17 +67,6 @@ export default function ExperienceSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div
-            className="mb-6 inline-flex items-center rounded-full border border-accent/30 bg-card/60 px-4 py-2 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <FaBriefcase className="mr-2 text-accent" size={16} />
-            <span className="text-sm font-medium text-text-secondary">Minha Jornada</span>
-          </motion.div>
-
           <motion.h2
             className="mb-6 font-space text-4xl font-bold text-text-primary lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
@@ -99,22 +75,12 @@ export default function ExperienceSection() {
             viewport={{ once: true }}
           >
             Experiência
-            <span className="bg-gradient-to-r from-accent via-purple to-pink bg-clip-text text-transparent"> Profissional</span>
+            <span className="text-accent"> Profissional</span>
           </motion.h2>
-
-          <motion.p
-            className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Uma trajetória de crescimento constante, sempre focado em entregar soluções de qualidade e impacto real.
-          </motion.p>
         </motion.div>
 
         <div className="relative mx-auto max-w-5xl">
-          <div className="absolute inset-y-0 left-8 hidden w-0.5 bg-gradient-to-b from-accent via-purple to-pink md:block"></div>
+          <div className="absolute inset-y-0 left-8 hidden w-0.5 bg-accent md:block"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
