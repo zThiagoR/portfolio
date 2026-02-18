@@ -15,7 +15,7 @@ export default {
         "darker": "#1a1a2e",
         "primary": "#16213e",
         "secondary": "#0e3460",
-        "accent": "#00d4ff",
+        "accent": "#06b6d4",
         "purple": "#8b5cf6",
         "pink": "#ec4899",
         "success": "#00ff88",
