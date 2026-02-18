@@ -1,5 +1,6 @@
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import ScrollToTop from "./components/scrollToTop";
 import AboutMe from "./components/sections/aboutme";
 import ExperienceSection from "./components/sections/experience";
 import ProjectsSection from "./components/sections/projects";
@@ -14,6 +15,7 @@ function App() {
       <StacksSection />
       <ProjectsSection />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
