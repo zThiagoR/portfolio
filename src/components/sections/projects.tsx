@@ -8,6 +8,14 @@ export default function ProjectsSection() {
 
   const projects = [
     {
+      title: "Craftlandia",
+      description: "Site desenvolvido para a comunidade Craftlandia, apresentando notícias, eventos e recursos para jogadores.",
+      tags: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
+      sourceUrl: "",
+      projectUrl: "https://craftlandia.com.br/site/index",
+      category: "web"
+    },
+    {
       title: "Roleta de Tecnologias",
       description: "Ferramenta interativa para ajudar desenvolvedores a escolher tecnologias para estudar.",
       tags: ["React", "Next.js", "TypeScript", "Sass"],
@@ -130,36 +138,30 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        <motion.div 
-          className="mt-16 text-center"
+        <motion.div
+          className="mx-auto mt-16 max-w-7xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div 
-            className="inline-flex flex-col items-center rounded-2xl border border-accent/30 bg-card/60 p-8 backdrop-blur-sm"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <p className="mb-6 text-lg text-text-secondary">
-              Interessado em ver mais do meu trabalho?
+          <div className="flex flex-col items-start gap-4 rounded-2xl border border-dashed border-accent/20 bg-accent/[0.03] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-2xl text-sm leading-relaxed text-text-secondary">
+              Interessado em ver mais? Confira{' '}
+              <span className="text-text-primary">todos os projetos</span>{' '}
+              no GitHub.
             </p>
             <motion.a
               href="https://github.com/zThiagoR"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center rounded-xl bg-accent px-8 py-4 font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0, 212, 255, 0.3)"
-              }}
+              className="w-full rounded-xl bg-accent px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 sm:w-auto sm:shrink-0"
+              whileHover={{ backgroundColor: "rgba(0, 212, 255, 0.6)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaCode className="mr-2 transition-transform duration-300 group-hover:scale-110" />
-              Ver Todos no GitHub
+              github.com/zThiagoR
             </motion.a>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
