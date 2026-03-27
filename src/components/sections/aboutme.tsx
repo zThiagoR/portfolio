@@ -1,21 +1,22 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SocialLinks from '../socialLinks';
 
+const ROLES = ['Full Stack', 'Frontend', 'Backend'];
+
 export default function AboutMe() {
   const [currentRole, setCurrentRole] = useState('Full Stack');
-  const roles = useMemo(() => ['Full Stack', 'Frontend', 'Backend'], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole(prev => {
-        const currentIndex = roles.indexOf(prev);
-        return roles[(currentIndex + 1) % roles.length];
+        const currentIndex = ROLES.indexOf(prev);
+        return ROLES[(currentIndex + 1) % ROLES.length];
       });
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [roles]);
+  }, []);
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-dark via-primary to-darker">
@@ -49,16 +50,16 @@ export default function AboutMe() {
         />
       </div>
 
-      <div className="container relative z-10 mx-auto flex min-h-screen flex-col items-center justify-between px-6 py-20 lg:flex-row">
+      <div className="container relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-12 px-6 py-20 lg:flex-row lg:gap-16">
         <motion.div
-          className="text-center lg:w-1/2 lg:text-left"
+          className="flex w-full flex-col items-center text-center lg:max-w-xl lg:items-start lg:text-left"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div>
+          <div className="flex flex-col items-center gap-4 lg:items-start">
             <motion.h1
-              className="mb-4 font-space text-5xl font-bold leading-tight text-text-primary lg:text-7xl"
+              className="font-space text-5xl font-bold leading-tight text-text-primary lg:text-7xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -74,32 +75,18 @@ export default function AboutMe() {
               </motion.span>
             </motion.h1>
 
-            <div className="h-12 text-2xl font-medium text-text-secondary lg:text-3xl">
+            <div className="flex min-h-12 items-center justify-center text-2xl font-medium text-text-secondary lg:justify-start lg:text-3xl">
               <span className="font-space">
                 Desenvolvedor{' '}
                 <span>
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentRole}
-                      className="font-semibold text-accent"
-                      initial={{
-                        opacity: 0
-                      }}
-                      animate={{
-                        opacity: 1
-                      }}
-                      exit={{
-                        opacity: 0
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeInOut"
-                      }}
-                      style={{
-                        willChange: 'opacity',
-                        backfaceVisibility: 'hidden',
-                        transform: 'translateZ(0)'
-                      }}
+                      className="transform-gpu font-semibold text-accent will-change-[opacity] [backface-visibility:hidden]"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       {currentRole}
                     </motion.span>
@@ -120,7 +107,7 @@ export default function AboutMe() {
         </motion.div>
 
         <motion.div
-          className="mt-12 flex justify-center lg:mt-0 lg:w-1/2"
+          className="mt-12 flex w-full justify-center lg:mt-0 lg:max-w-xl"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
